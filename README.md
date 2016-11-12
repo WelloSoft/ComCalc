@@ -1,4 +1,4 @@
-# ComCalc V1.0 - 11/12/2016
+# ComCalc V1.1 - 13/12/2016
 
 ComCalc is a .NET API build to generally evaluate a math expression from strings. In a nutshell, it can do ....
 
