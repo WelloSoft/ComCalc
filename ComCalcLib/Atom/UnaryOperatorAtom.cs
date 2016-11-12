@@ -25,6 +25,8 @@ namespace ComCalcLib
 
         public override double Compute(CompEnvironment environment)
         {
+            if (value == null)
+                return ComHelper.UnaryOperands[func](0);
             return ComHelper.UnaryOperands[func](value.Compute(environment));
         }
 

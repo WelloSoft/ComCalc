@@ -1,6 +1,7 @@
 ﻿
 using System.Collections.Generic;
 using System.Text;
+using System.Globalization;
 
 namespace ComCalcLib
 {
@@ -24,7 +25,7 @@ namespace ComCalcLib
                 {
                     position++;
                 }
-                else if (char.IsDigit(ch))
+                else if (char.IsDigit(ch) || ch == '.')
                 {
                     formula.Add(DigitAtom.Get(ProcessDigit(formula, value, ref position)));
                 }
@@ -155,13 +156,12 @@ namespace ComCalcLib
             return null;
         }
 
-        private static float ProcessDigit(FormulaAtom formula, string value, ref int position)
+        private static double ProcessDigit(FormulaAtom formula, string value, ref int position)
         {
-            var result = new StringBuilder();
+             var start = position;
             while (position < value.Length)
             {
                 var ch = value[position];
-                result.Append(ch);
                 position++;
                 if (position == value.Length)
                     break;
@@ -172,8 +172,11 @@ namespace ComCalcLib
                 }
             }
 
-            return float.Parse(result.ToString());
+            return double.Parse(value.Substring(start, position - start), invariant);
         }
+
+
+        static CultureInfo invariant = CultureInfo.InvariantCulture;
 
         private static string ProcessLetter(FormulaAtom formula, string value, ref int position)
         {

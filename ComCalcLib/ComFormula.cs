@@ -43,16 +43,16 @@ public class ComFormula
 	}
 
 	protected virtual void Reparse ()
-	{
+	{ 
 		if(rootFormula != null)
 			rootFormula.Flush();
-	//	try {
+		try {
 			rootFormula = ComFormulaParser.Parse (c_Expression);
 			c_ErrorMessage = null;
-		/*} catch (Exception ex) {
+		} catch (Exception ex) {
 			c_ErrorMessage = ex.Message;
 		}
-		c_Value = double.NaN;*/
+		c_Value = double.NaN;
 	}
 
 	public virtual void Parse (string expression)
@@ -67,14 +67,16 @@ public class ComFormula
 			c_Environ = new CompEnvironment(variables);
 		if(rootFormula == null)
 			Reparse();
-		//try {
+            if (c_ErrorMessage != null)
+                return errorValue;
+		try {
 			c_Value = rootFormula.Compute (c_Environ);
 			c_ErrorMessage = null;
 			return c_Value;
-		//} catch (Exception ex) {
-			//c_ErrorMessage = ex.Message;
-			//return errorValue;
-//		}
+		} catch (Exception ex) {
+			c_ErrorMessage = ex.Message;
+			return errorValue;
+		}
 	}
 
         public string TracedPath 

@@ -26,7 +26,9 @@ namespace ComCalcLib {
 	
 		public override double Compute (CompEnvironment environment)
 		{
-			return ComHelper.Functions[func] (value.Compute (environment));
+            if (value == null)
+                return ComHelper.Functions [func](0);
+            return ComHelper.Functions[func] (value.Compute (environment));
 		}
 
         public override string ToString()

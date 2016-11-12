@@ -169,10 +169,19 @@ namespace ComCalcLib {
                             throw ComCalcException.p_OpByOp;
 					} else {
                         //// Non Operator <-> Operator
-                        if (lastAtom.parent is OperatorAtom &&
-                             ComHelper.compareOpLevel(opAtom.func, ((OperatorAtom)lastAtom.parent).func))
-                            replaceOpAtomR(atom, lastAtom);
-                        else
+                        bool hasParented = false;
+                        while (lastAtom.parent is OperatorAtom)
+                        {
+                            if (ComHelper.compareOpLevel(opAtom.func, ((OperatorAtom)lastAtom.parent).func))
+                            {
+                                replaceOpAtomR(atom, lastAtom);
+                                hasParented = true;
+                                break;
+                            }
+                            else
+                                lastAtom = lastAtom.parent;
+                        }
+                       if (!hasParented)
                             replaceOpAtomL(atom, lastAtom);
                     }
 
