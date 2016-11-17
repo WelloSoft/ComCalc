@@ -1,6 +1,6 @@
 # ComCalc V1.2 - 17/11/2016
 
-(ComCalc)[https://wellosoft.github.io/ComCalc/] is a .NET API build to generally evaluate a math expression from strings. In a nutshell, it can do ....
+[ComCalc](https://wellosoft.github.io/ComCalc/) is a .NET API build to generally evaluate a math expression from strings. In a nutshell, it can do ....
 
 ```csharp
 // Returns 15 (double)
