@@ -24,6 +24,14 @@ namespace ComCalcLib
             return ComHelper.Constant[func]();
         }
 
+        public override void DebugHierarchy(int indent)
+        {
+            base.DebugHierarchy(indent++);
+            _hierarchySingleton.Append("Constant : ");
+            _hierarchySingleton.Append(func);
+            _hierarchySingleton.AppendLine();
+        }
+
         public override string ToString()
         {
             return base.ToString() + ": " + func;

@@ -34,10 +34,10 @@
             this.VarProp = new System.Windows.Forms.PropertyGrid();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.XMax = new System.Windows.Forms.NumericUpDown();
             this.XMin = new System.Windows.Forms.NumericUpDown();
             this.X = new System.Windows.Forms.TrackBar();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -61,6 +61,7 @@
             // Traced
             // 
             this.Traced.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Traced.Font = new System.Drawing.Font("Consolas", 9F);
             this.Traced.Location = new System.Drawing.Point(0, 0);
             this.Traced.Multiline = true;
             this.Traced.Name = "Traced";
@@ -122,6 +123,17 @@
             this.panel1.Size = new System.Drawing.Size(329, 59);
             this.panel1.TabIndex = 5;
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Location = new System.Drawing.Point(118, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 19);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "\'X\' Variable";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // XMax
             // 
             this.XMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -177,17 +189,6 @@
             this.X.TabIndex = 4;
             this.X.ValueChanged += new System.EventHandler(this.X_ValueChanged);
             // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.Location = new System.Drawing.Point(118, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 19);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "\'X\' Variable";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -196,7 +197,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.Input);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "ComCalc Tester";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

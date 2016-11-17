@@ -115,11 +115,42 @@ namespace ComCalcLib
             return r;
         }
 
+
         public static double Evaluate(this string s)
         {
             checkAndReload();
             var r = new ComFormula();
             r.Parse(s);
+            return r.Compute();
+        }
+
+        public static double Evaluate(this string s, double x)
+        {
+            checkAndReload();
+            var r = new ComFormula();
+            r.Parse(s);
+            r.variables["x"] = x;
+            return r.Compute();
+        }
+
+        public static double Evaluate(this string s, double x, double y)
+        {
+            checkAndReload();
+            var r = new ComFormula();
+            r.Parse(s);
+            r.variables["x"] = x;
+            r.variables["y"] = y;
+            return r.Compute();
+        }
+
+        public static double Evaluate(this string s, double x, double y, double z)
+        {
+            checkAndReload();
+            var r = new ComFormula();
+            r.Parse(s);
+            r.variables["x"] = x;
+            r.variables["y"] = y;
+            r.variables["z"] = z;
             return r.Compute();
         }
 

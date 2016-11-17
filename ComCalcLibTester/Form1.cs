@@ -25,7 +25,7 @@ namespace ComCalcLibTester
             formula = Input.Text.ParseExpression();
             formula.variables["x"] = xx;
             Output.Text = formula.Compute().ToString("R");
-            Traced.Text = formula.TracedPath.Replace("\t", "    ");
+            Traced.Text = formula.TracedPath.Replace("\t", "  ");
             VarProp.SelectedObject = formula;
         }
 
@@ -34,5 +34,12 @@ namespace ComCalcLibTester
             xx = (double)(XMin.Value + (XMax.Value - XMin.Value) * X.Value / 100.0m);
             Input_TextChanged(sender, e);
         }
+
+        static double HelloWorld ()
+        {
+            // return 5 (double)
+            return "x^2+8x+sin(pi/6)".Evaluate(0.5);
+        }
+
     }
 }
